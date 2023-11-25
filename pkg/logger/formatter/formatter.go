@@ -1,6 +1,6 @@
 package formatter
 
-import "github.com/t101804/xorhunt/logger/levels"
+import "github.com/t101804/xorhunt/pkg/logger/levels"
 
 // Formatter type format raw logging data into something useful
 type Formatter interface {

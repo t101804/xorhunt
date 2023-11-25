@@ -4,7 +4,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/t101804/xorhunt/logger/levels"
+	"github.com/t101804/xorhunt/pkg/logger/levels"
 )
 
 // CLI is a concurrent output writer to terminal.

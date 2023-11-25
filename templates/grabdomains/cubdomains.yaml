@@ -1,0 +1,12 @@
+title: web grabber by cubdomains using regex and pagination
+author: rep 
+last_updated: 11/25/2023
+
+config:
+  site: www.cubdomain.com
+  path: /domains-registered-by-date/2023-07-09/{page}
+  custom_header: 
+    - Content-Type:application/x-www-form-urlencoded
+    - User-agent:Hunter_RepProject
+  regex:
+  json_parse:

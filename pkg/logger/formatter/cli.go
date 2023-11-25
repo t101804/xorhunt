@@ -3,9 +3,8 @@ package formatter
 import (
 	"bytes"
 
-	"github.com/t101804/xorhunt/logger/levels"
-
 	"github.com/logrusorgru/aurora"
+	"github.com/t101804/xorhunt/pkg/logger/levels"
 )
 
 // CLI is a formatter for outputting CLI logs
@@ -75,6 +74,8 @@ func (c *CLI) colorizeLabel(event *LogEvent) {
 		return
 	case levels.LevelInfo, levels.LevelVerbose:
 		event.Metadata["label"] = c.aurora.Blue(label).String()
+	case levels.LevelAds:
+		event.Metadata["label"] = c.aurora.BrightYellow(label).String()
 	case levels.LevelFatal:
 		event.Metadata["label"] = c.aurora.Bold(aurora.Red(label)).String()
 	case levels.LevelError:

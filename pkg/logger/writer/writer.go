@@ -1,7 +1,7 @@
 package writer
 
 import (
-	"github.com/t101804/xorhunt/logger/levels"
+	"github.com/t101804/xorhunt/pkg/logger/levels"
 )
 
 // Writer type writes data to an output type.

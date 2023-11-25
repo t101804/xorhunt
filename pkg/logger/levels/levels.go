@@ -8,6 +8,7 @@ const (
 	LevelFatal Level = iota
 	LevelSilent
 	LevelError
+	LevelAds
 	LevelInfo
 	LevelWarning
 	LevelDebug

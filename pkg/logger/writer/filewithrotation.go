@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/t101804/xorhunt/logger/levels"
+	"github.com/t101804/xorhunt/pkg/logger/levels"
 
 	"github.com/mholt/archiver"
 	"gopkg.in/djherbis/times.v1"
@@ -214,5 +214,5 @@ func getChangeTime(filename string) (time.Time, error) {
 		return t.ChangeTime(), nil
 	}
 
-	return timeNow, errors.New("No change time")
+	return timeNow, errors.New("no change time")
 }

@@ -1,0 +1,11 @@
+title: title for the template
+author: yourname 
+last_updated: date/month/year
+
+config:
+  site: thedomainname.com
+  path: /putthepath/etc
+  custom_header: 
+    - PutNameHeader:PutValueHeader
+  regex: 
+  json_parse:

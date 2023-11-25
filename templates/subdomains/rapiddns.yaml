@@ -1,0 +1,12 @@
+title: Subdomain finder by rapiddns
+author: rep 
+last_updated: 11/25/2023
+
+config:
+  site: rapiddns.io
+  path: /subdomain/{iterfile}?full=1
+  custom_header: 
+    - Content-Type:application/x-www-form-urlencoded
+    - User-agent:Hunter_RepProject
+  regex:
+  json_parse:
