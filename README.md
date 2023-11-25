@@ -12,4 +12,7 @@ You can recon or scan using third party program depends on your templates 🔥</
 - [ ] Create a Runner Script
 - [ ] Create a Results Parse
 - [ ] Create a Customizeable config adjust
+- [ ] Create a Library use case example
+- [ ] Create a Web Based XorHunt Panel
+- [ ] Create a Docker Configuration Script
 - [ ] Many-more
