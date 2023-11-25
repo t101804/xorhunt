@@ -8,7 +8,7 @@ import (
 	"github.com/t101804/xorhunt/pkg/logger"
 )
 
-type tmpl struct {
+type Tmpl struct {
 	TmplStruct *TemplateStruct
 	Path       *Path
 }
@@ -30,7 +30,7 @@ func (tmpl *TemplateStruct) ValPath(opt *options.GlobalOptions) *Path {
 	return p
 }
 
-func ReadTemplate(opt *options.GlobalOptions) *tmpl {
+func ReadTemplate(opt *options.GlobalOptions) *Tmpl {
 	viper.SetConfigFile(opt.TemplateName)
 	if err := viper.ReadInConfig(); err != nil {
 
@@ -56,7 +56,7 @@ func ReadTemplate(opt *options.GlobalOptions) *tmpl {
 		},
 	}
 
-	return &tmpl{
+	return &Tmpl{
 		TmplStruct: tmpls,
 		Path:       tmpls.ValPath(opt),
 	}
