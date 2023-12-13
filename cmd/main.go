@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
 	"github.com/t101804/xorhunt/options"
-	"github.com/t101804/xorhunt/pkg/templateparser"
+	"github.com/t101804/xorhunt/pkg/runner"
 	"github.com/urfave/cli/v2"
 )
 
@@ -17,8 +16,14 @@ func main() {
 	opts := options.GetOpts(app)
 	app.Action = func(ctx *cli.Context) error {
 		opts.ValOpts()
-		tmpl := templateparser.ReadTemplate(opts)
-		fmt.Println(tmpl.Path)
+		hunt, err := runner.NewRunner(opts)
+		if err != nil {
+			return err
+		}
+		err = hunt.Start()
+		if err != nil {
+			return err
+		}
 		return nil
 	}
 

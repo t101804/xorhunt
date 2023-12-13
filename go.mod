@@ -7,6 +7,7 @@ require (
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/mholt/archiver v3.1.1+incompatible
 	github.com/projectdiscovery/dnsx v1.1.6
+	github.com/projectdiscovery/utils v0.0.66
 	github.com/rs/xid v1.5.0
 	github.com/spf13/viper v1.17.0
 	github.com/urfave/cli/v2 v2.25.7
@@ -35,8 +36,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/projectdiscovery/blackrock v0.0.1 // indirect
 	github.com/projectdiscovery/cdncheck v1.0.9 // indirect
-	github.com/projectdiscovery/retryabledns v1.0.41 // indirect
-	github.com/projectdiscovery/utils v0.0.62 // indirect
+	github.com/projectdiscovery/retryabledns v1.0.45 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sagikazarmark/locafero v0.3.0 // indirect
 	github.com/sagikazarmark/slog-shim v0.1.0 // indirect
@@ -58,6 +58,7 @@ require (
 	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
 	golang.org/x/tools v0.13.0 // indirect
+	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

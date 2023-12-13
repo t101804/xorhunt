@@ -1,10 +1,12 @@
 package templateparser
 
 import (
+	"fmt"
 	"strings"
 
+	fileutil "github.com/projectdiscovery/utils/file"
 	"github.com/spf13/viper"
-	"github.com/t101804/xorhunt/options"
+
 	"github.com/t101804/xorhunt/pkg/logger"
 )
 
@@ -13,28 +15,31 @@ type Tmpl struct {
 	Path       *Path
 }
 
-func (tmpl *TemplateStruct) ValPath(opt *options.GlobalOptions) *Path {
+func (tmpl *TemplateStruct) ValPath(iterNum int, iterFile string) *Path {
 	p := &Path{}
 	if strings.Contains(tmpl.Config.Path, "{iternum}") {
-		if opt.IterNum == 0 {
+		if iterNum == 0 {
 			logger.Fatal().Msg("you using the template that using iter number but you not specify the flag iter number")
 		}
-		p.IterNum = opt.IterNum
+		p.IterNum = iterNum
 	}
 	if strings.Contains(tmpl.Config.Path, "{iterfile}") {
-		if opt.IterFile == "" {
-			logger.Fatal().Msg("you using the template that using iter file but you not specify the flag iter lists")
+		if iterFile == "" {
+			logger.Fatal().Msg("you using the template that using iter file but you not specify the flag iter lists [ --list urlisttobeiterate , e.g: --list listIPs.txt ]")
 		}
-		p.IterFile = opt.IterFile
+		if !fileutil.FileExists(iterFile) {
+			logger.Fatal().Msg("the file that you provide is not exist [ make sure u put the correct file path ]")
+		}
+		p.IterFile = iterFile
 	}
 	return p
 }
 
-func ReadTemplate(opt *options.GlobalOptions) *Tmpl {
-	viper.SetConfigFile(opt.TemplateName)
+func ReadTemplate(tmplFile string) (*Tmpl, error) {
+	viper.SetConfigFile(tmplFile)
 	if err := viper.ReadInConfig(); err != nil {
 
-		logger.Fatal().Msgf("error '%s' %s", opt.TemplateName, err)
+		return nil, fmt.Errorf("error '%s' %s", tmplFile, err)
 
 	}
 	tmpls := &TemplateStruct{
@@ -58,6 +63,5 @@ func ReadTemplate(opt *options.GlobalOptions) *Tmpl {
 
 	return &Tmpl{
 		TmplStruct: tmpls,
-		Path:       tmpls.ValPath(opt),
-	}
+	}, nil
 }
